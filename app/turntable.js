@@ -5,7 +5,12 @@ app.directive("turntable", [ '$interval', function($interval){
         console.info('element: ' + element);
         var ctx = element[0].getContext('2d');
         ctx.font = "30px Arial";
-        ctx.fillRect(10, 20, 30, 30);
+
+        var backgroundImage = new Image();
+        backgroundImage.src = 'app/img/background.jpg';
+
+        var machineImage = new Image();
+        backgroundImage.src = 'app/img/machine.jpg';
 
 
 
@@ -16,6 +21,7 @@ app.directive("turntable", [ '$interval', function($interval){
         animate();
 
         function animate() {
+            ctx.drawImage(backgroundImage, 0, 0);
 
             if(mousepressed)
                 ctx.fillStyle="#FF0000";
