@@ -28,12 +28,19 @@ app.directive("turntable", [ 'loadedImages', function(loadedImages){
                 stop: control.stop
             });
 
-            var play = addPowerLayer(stage, {
+            var power = addPowerLayer(stage, {
                 on: images.powerOn,
                 off: images.powerOff,
                 start: control.start,
                 stop: control.stop
             });
+
+            var speedButtons = add3345Layer(stage, {
+                on33: images.speed33On,
+                off33: images.speed33Off,
+                on45: images.speed45On,
+                off45: images.speed45Off
+            })
         })
     }
 

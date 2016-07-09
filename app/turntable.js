@@ -10,7 +10,11 @@ app.value('images', {
     playOn: 'btn-play-on.png',
     playOff: 'btn-play-off.png',
     powerOn: 'btn-power-on.png',
-    powerOff: 'btn-power-off.png'
+    powerOff: 'btn-power-off.png',
+    speed33On: 'btn-33-on.png',
+    speed33Off: 'btn-33-off.png',
+    speed45On: 'btn-45-on.png',
+    speed45Off: 'btn-45-off.png'
 });
 
 app.factory('loadedImages', ['$q', 'imagePath', 'images', function ($q, imagePath, images) {
