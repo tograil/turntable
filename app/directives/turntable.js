@@ -7,11 +7,6 @@ app.directive("turntable", [ 'loadedImages', function(loadedImages){
         });
 
         loadedImages.loadImages().then(function (images) {
-            
-            
-            
-            
-
             addBackgroundLayer(stage, images.background);
             addMachineLayer(stage, images.machine);
             var disc = addDiscLayer(stage, images.disk);
@@ -24,9 +19,21 @@ app.directive("turntable", [ 'loadedImages', function(loadedImages){
                 stop: function () {
                     disc.stop();
                 }
-            })
+            });
 
-            
+            var play = addOnOffLayer(stage, {
+                on: images.playOn,
+                off: images.playOff,
+                start: control.start,
+                stop: control.stop
+            });
+
+            var play = addPowerLayer(stage, {
+                on: images.powerOn,
+                off: images.powerOff,
+                start: control.start,
+                stop: control.stop
+            });
         })
     }
 

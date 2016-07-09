@@ -4,7 +4,7 @@ function addControlLayer(stage, params) {
     var rollStarted = false;
 
     var control = new Konva.Image({
-        x:430,
+        x:432,
         y:125,
         image: params.image,
         width: 110,
@@ -40,16 +40,21 @@ function addControlLayer(stage, params) {
     }, controlLayer);
     
     stage.add(controlLayer);
+    
+    function controlStart() {
+        rollStarted = true;
+        animOne.start();
+        params.start();
+    }
 
-    control.on('mousedown', function () {
-        rollStarted ^= true;
-        if(rollStarted) {
-            animOne.start();
-            params.start();
-        }
-        else {
-            animTwo.start();
-            params.stop();
-        }
-    });
+    function controlStop() {
+        rollStarted = false;
+        animTwo.start();
+        params.stop();
+    }
+
+    return {
+        start: controlStart,
+        stop: controlStop
+    }
 }

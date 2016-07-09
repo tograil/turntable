@@ -6,7 +6,11 @@ app.value('images', {
     background: 'background.jpg',
     machine: 'machine.png',
     disk: 'disc.png',
-    control: 'control.png'
+    control: 'control.png',
+    playOn: 'btn-play-on.png',
+    playOff: 'btn-play-off.png',
+    powerOn: 'btn-power-on.png',
+    powerOff: 'btn-power-off.png'
 });
 
 app.factory('loadedImages', ['$q', 'imagePath', 'images', function ($q, imagePath, images) {
