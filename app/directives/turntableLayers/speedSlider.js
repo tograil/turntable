@@ -21,11 +21,28 @@ function addSpeedSlider(stage, layer, params) {
         offset: {
             x: 15,
             y: 15
+        },
+        draggable: true,
+        dragBoundFunc: function (pos) {
+            var ypos = pos.y;
+
+            if(ypos <= 240)
+                ypos = 240;
+            if(ypos >= 380)
+                ypos = 380;
+            return {
+                y: ypos,
+                x: this.getAbsolutePosition().x
+            }
         }
     });
 
     group.add(speedSliderBase);
     group.add(speedSliderButton);
+
+    var pressed = false;
+
+
 
     stage.add(group);
 }
