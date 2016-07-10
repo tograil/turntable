@@ -16,7 +16,10 @@ app.value('images', {
     speed45On: 'btn-45-on.png',
     speed45Off: 'btn-45-off.png',
     speedSlider: 'speed-control.png',
-    speedSliderButton: 'speed-control-btn.png'
+    speedSliderButton: 'speed-control-btn.png',
+    soundWave: 'sound-wave.png',
+    soundWaveControl: 'sound-wave-controll.png',
+    soundWaveControlBtn: 'sound-wave-control-btn.png'
 });
 
 app.factory('loadedImages', ['$q', 'imagePath', 'images', function ($q, imagePath, images) {

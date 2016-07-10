@@ -7,6 +7,11 @@ app.directive("turntable", [ 'loadedImages', function(loadedImages){
         });
 
         loadedImages.loadImages().then(function (images) {
+            addTurntable(stage, images);
+            addWaveControl(stage, images)
+        });
+
+        function addTurntable(stage, images) {
             addBackgroundLayer(stage, images.background);
 
             var turntableLayer = new Konva.Layer();
@@ -36,7 +41,7 @@ app.directive("turntable", [ 'loadedImages', function(loadedImages){
                 stop: control.stop
             });
 
-           var power = addPowerLayer(turntableGroup, turntableLayer, {
+            var power = addPowerLayer(turntableGroup, turntableLayer, {
                 on: images.powerOn,
                 off: images.powerOff,
                 start: control.start,
@@ -58,7 +63,52 @@ app.directive("turntable", [ 'loadedImages', function(loadedImages){
             turntableLayer.add(turntableGroup);
 
             stage.add(turntableLayer);
-        })
+        }
+
+        function addWaveControl(stage, images) {
+            var waveControlLayer = new Konva.Layer();
+
+            var group = new Konva.Group({
+                x: 95,
+                y: 450
+            });
+
+            var waveImage = new Konva.Image({
+               x: 0,
+                y: 0,
+                image: images.soundWave,
+                width: 502,
+                height: 62
+            });
+
+            var waveImageControl = new Konva.Image({
+                x: 0,
+                y: 75,
+                image: images.soundWaveControl,
+                width: 502,
+                height: 7
+            });
+
+       var waveImageControlBtn = new Konva.Image({
+                x: 7,
+                y: 79,
+                image: images.soundWaveControlBtn,
+                width: 29,
+                height: 29,
+                offset: {
+                    x: 15,
+                    y: 15
+                }
+            });
+
+            group.add(waveImage);
+            group.add(waveImageControl);
+            group.add(waveImageControlBtn);
+
+            waveControlLayer.add(group);
+            stage.add(waveControlLayer);
+
+        }
     }
 
     return {
