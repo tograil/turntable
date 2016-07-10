@@ -1,9 +1,7 @@
-function addOnOffLayer(stage, params) {
-    var onOffLayer = new Konva.Layer();
-
+function addOnOffLayer(stage, layer, params) {
     var group = new Konva.Group({
         x: 70,
-        y: 360,
+        y: 330,
         offset: {
             x: 20,
             y: 20
@@ -30,23 +28,21 @@ function addOnOffLayer(stage, params) {
     group.add(on);
     group.add(off);
 
-    onOffLayer.add(group);
-
     on.hide();
 
     off.on('mousedown', function () {
         params.start();
         off.hide();
         on.show();
-        onOffLayer.draw();
+        layer.draw();
     });
 
     on.on('mousedown', function () {
         params.stop();
         off.show();
         on.hide();
-        onOffLayer.draw();
+        layer.draw();
     });
 
-    stage.add(onOffLayer);
+    stage.add(group);
 }

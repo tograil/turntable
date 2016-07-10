@@ -4,8 +4,8 @@ function addBackgroundLayer(stage, image) {
         x:0,
         y:0,
         image: image,
-        width: 552,
-        height: 427
+        width: 700,
+        height: 575
     });
 
     backgroundLayer.add(background);

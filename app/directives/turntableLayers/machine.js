@@ -1,13 +1,15 @@
 function addMachineLayer(stage, image) {
-    var machineLayer = new Konva.Layer();
+
+    var group = new Konva.Group();
+
     var machine = new Konva.Image({
         x:0,
         y:0,
         image: image,
-        width: 552,
-        height: 427
+        width: 516,
+        height: 391
     });
 
-    machineLayer.add(machine);
-    stage.add(machineLayer);
+    group.add(machine);
+    stage.add(group);
 }

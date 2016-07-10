@@ -1,11 +1,11 @@
-function addControlLayer(stage, params) {
-    var controlLayer = new Konva.Layer();
+function addControlLayer(stage, layer, params) {
+    var controlGroup = new Konva.Group();
 
     var rollStarted = false;
 
     var control = new Konva.Image({
-        x:432,
-        y:125,
+        x:428,
+        y:94,
         image: params.image,
         width: 110,
         height: 310,
@@ -15,12 +15,8 @@ function addControlLayer(stage, params) {
         }
     });
 
+    controlGroup.add(control);
 
-
-    controlLayer.add(control);
-
-
-    // one revolution per 4 seconds
     var angularSpeed = 90;
     var pos = 0;
     var animOne = new Konva.Animation(function(frame) {
@@ -29,7 +25,7 @@ function addControlLayer(stage, params) {
         pos++;
         if(pos >= 25)
             animOne.stop();
-    }, controlLayer);
+    }, layer);
 
     var animTwo = new Konva.Animation(function(frame) {
         var angleDiff = frame.timeDiff * -angularSpeed / 1000;
@@ -37,9 +33,9 @@ function addControlLayer(stage, params) {
         pos--;
         if(pos <= 0)
             animTwo.stop();
-    }, controlLayer);
+    }, layer);
     
-    stage.add(controlLayer);
+    stage.add(controlGroup);
     
     function controlStart() {
         rollStarted = true;

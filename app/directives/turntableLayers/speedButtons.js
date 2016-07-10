@@ -1,10 +1,8 @@
-function add3345Layer(stage, params) {
-
-var onOffLayer = new Konva.Layer();
+function add3345Layer(stage, layer, params) {
 
 var group = new Konva.Group({
-    x: 90,
-    y: 355
+    x: 95,
+    y: 327
 });
 
 var off33 = new Konva.Image({
@@ -46,8 +44,6 @@ group.add(off33);
 group.add(on45);
 group.add(off45);
 
-onOffLayer.add(group);
-
 off33.hide();
 on45.hide();
 
@@ -57,7 +53,7 @@ off45.on('mousedown', function () {
     on33.hide();
     off33.show();
     on45.show();
-    onOffLayer.draw();
+    layer.draw();
 });
 
 off33.on('mousedown', function () {
@@ -66,8 +62,8 @@ off33.on('mousedown', function () {
     off33.hide();
     on33.show();
     off45.show();
-    onOffLayer.draw();
+    layer.draw();
 });
 
-stage.add(onOffLayer);
+stage.add(group);
 }

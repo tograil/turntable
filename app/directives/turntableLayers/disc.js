@@ -1,9 +1,9 @@
-function addDiscLayer(stage, image) {
-    var discLayer = new Konva.Layer();
+function addDiscLayer(stage, layer, image) {
+    var group = new Konva.Group();
 
     var disc = new Konva.Image({
-        x:233,
-        y:213,
+        x:227,
+        y:185,
         image: image,
         width: 311,
         height: 311,
@@ -13,15 +13,15 @@ function addDiscLayer(stage, image) {
         }
     });
 
-    discLayer.add(disc);
-    stage.add(discLayer);
+    group.add(disc);
+    stage.add(group);
 
     // one revolution per 4 seconds
     var angularSpeed = 90;
     var anim = new Konva.Animation(function(frame) {
         var angleDiff = frame.timeDiff * angularSpeed / 1000;
         disc.rotate(angleDiff);
-    }, discLayer);
+    }, layer);
 
     return {
         start: function() {

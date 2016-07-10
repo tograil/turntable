@@ -4,9 +4,9 @@ app.value('imagePath', 'app/img/');
 
 app.value('images', {
     background: 'background.jpg',
-    machine: 'machine.png',
+    machine: 'turntable-base.png',
     disk: 'disc.png',
-    control: 'control.png',
+    control: 'music-control.png',
     playOn: 'btn-play-on.png',
     playOff: 'btn-play-off.png',
     powerOn: 'btn-power-on.png',
@@ -14,7 +14,9 @@ app.value('images', {
     speed33On: 'btn-33-on.png',
     speed33Off: 'btn-33-off.png',
     speed45On: 'btn-45-on.png',
-    speed45Off: 'btn-45-off.png'
+    speed45Off: 'btn-45-off.png',
+    speedSlider: 'speed-control.png',
+    speedSliderButton: 'speed-control-btn.png'
 });
 
 app.factory('loadedImages', ['$q', 'imagePath', 'images', function ($q, imagePath, images) {
